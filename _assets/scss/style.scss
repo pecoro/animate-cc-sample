@@ -42,9 +42,16 @@ setting
 each
 
 --------------------- */
-.container-inner-max{
-    background-color: blue;
+
+#body{
+    background-color: #eee;
 }
 .container-inner-center{
-    background-color: red;
+    background-color: #fff;
+    padding: 60px;
+}
+.title-01{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
