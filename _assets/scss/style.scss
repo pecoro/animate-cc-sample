@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/* ---------------------
+
+Remarks: 必ずcssではなく_assets/scss内のファイルを編集してください。
+
+--------------------- */
+
+/* ---- bootstrapはブレイクポイントのみ使用  ---- */
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins/breakpoints";
+
+@import "import/reset";
+
+
+/* ---- カンプで使用している数値を設定  ---- */
+
+$spStandardWidth:320;
+$pcStandardWidth:1140;
+
+@import "import/mixins";
+
+$pcMaxWidth:1140;
+
+$spHeaderHeight:64;
+$pcHeaderHeight:90;
+
+$pcMinHeight:(684 / 1034) * 100vw;
+
+/* ---------------------
+
+setting
+
+--------------------- */
+@import "import/common";
+
+
+
+/* ---------------------
+
+each
+
+--------------------- */
+.container-inner-max{
+    background-color: blue;
+}
+.container-inner-center{
+    background-color: red;
+}
