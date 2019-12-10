@@ -3,19 +3,13 @@
 // jQueryはwebpack側で読み込んでいる
 
 // sub.jsファイルを読み込むには???
-// import sub from "./_sub";
-// sub;
+import sub from "./_sub";
+sub;
 
 // anime.jsを読み込む
 import anime from 'animejs/lib/anime.es.js';
 
-// anime({
-//     targets: 'div',
-//     translateX: 250,
-//     rotate: '1turn',
-//     backgroundColor: '#FFF',
-//     duration: 800
-// });
+
 
 // ローディングアニメーション ---------------------------------------------------- //
 
@@ -34,7 +28,6 @@ window.addEventListener('load', function () {
 function resizeInit() {
 
 }
-
 
 
 // execute ------------------------------------------------------------------ //

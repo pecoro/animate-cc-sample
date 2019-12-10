@@ -34,11 +34,10 @@ const webpackConfig = {
 
     // エントリーポイント※polyfillを追加しました
     // 複数エントリポイントにも対応
-    entry:{
-        ['@babel/polyfill', './_assets/js/project.js']
-    },
+    entry:['@babel/polyfill','./_assets/js/project.js'],
     // 出力ファイル
     output: {
+        path: __dirname + '/dist/js',
         filename: "[name].min.js"
     },
     module: {
