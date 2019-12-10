@@ -1,0 +1,206 @@
+/* ---------------------
+
+ブレークポイントはbootstrapのmixinを利用
+@include media-breakpoint-up(xs) { ... }
+@include media-breakpoint-up(sm) { ... }
+@include media-breakpoint-up(md) { ... }
+@include media-breakpoint-up(lg) { ... }
+@include media-breakpoint-up(xl) { ... }
+
+@include media-breakpoint-down(xs) { ... }
+@include media-breakpoint-down(sm) { ... }
+@include media-breakpoint-down(md) { ... }
+@include media-breakpoint-down(lg) { ... }
+@include media-breakpoint-down(xl) { ... }
+
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 576px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
+--------------------- */
+
+/* ---------------------
+
+//common
+
+@include widthSp($widthSp);
+@include widthPc($widthPc);
+@include widthPcFit($widthPc);
+
+@include heightSp($heightSp);
+@include heightPc($heightPc);
+
+@include paddingSp(10,10,10,10);
+@include paddingPc(10,10,10,10);
+
+@include fontSizeSp($fontSizeSp);
+@include fontSizePc($fontSizePc);
+
+@include lineHeightSp($lineHeightSp);
+@include lineHeightPc($lineHeightPc);
+
+@include marginBottomSp($marginBottomSp);
+@include marginBottomPc($marginBottomPc);
+
+@include marginTopSp($marginTopSp);
+@include marginTopPc($marginTopPc);
+
+// for this site
+@include fontBold();
+@include fontSemiBold();
+@include fontHandWrighting();
+
+@include contentText(auto,auto,30px,0px,256,116,$pc:true);
+@include widthSp(237 /2);
+@include heightSp(116 /2);
+@include media-breakpoint-up(md) { 
+  @include widthPc(237);
+  @include heightPc(116);
+}
+
+--------------------- */
+
+/* ---------------------
+
+mixin common
+
+--------------------- */
+@mixin widthSp($widthSp){
+  width: ($widthSp / $spStandardWidth) * 100vw;
+}
+@mixin widthPc($widthPc){
+  width: ($widthPc / $pcStandardWidth) * 100vw;
+  @include media-breakpoint-up(xl) {
+    width: $widthPc * 1px;
+  }
+}
+@mixin widthPcFit($widthPc){
+  width: ($widthPc / $pcStandardWidth) * 100vw;
+}
+
+@mixin heightSp($heightSp){
+  height: ($heightSp / $spStandardWidth) * 100vw;
+}
+@mixin heightPc($heightPc){
+  height: ($heightPc / $pcStandardWidth) * 100vw;
+  @include media-breakpoint-up(xl) {
+    height: $heightPc * 1px;
+  }
+}
+
+@mixin paddingSp($paddingTopSp,$paddingRightSp,$paddingBottomSp,$paddingLeftSp){
+  padding:($paddingTopSp / $spStandardWidth)*100vw ($paddingRightSp / $spStandardWidth)*100vw ($paddingBottomSp / $spStandardWidth)*100vw ($paddingLeftSp / $spStandardWidth)*100vw;
+}
+
+@mixin paddingPc($paddingTopPc,$paddingRightPc,$paddingBottomPc,$paddingLeftPc){
+  padding:($paddingTopPc / $pcStandardWidth)*100vw ($paddingRightPc / $pcStandardWidth)*100vw ($paddingBottomPc / $pcStandardWidth)*100vw ($paddingLeftPc / $pcStandardWidth)*100vw;
+  @include media-breakpoint-up(xl) {
+  padding:$paddingTopPc * 1px $paddingRightPc * 1px $paddingBottomPc * 1px $paddingLeftPc * 1px;
+  }
+}
+
+@mixin fontSizeSp($fontSizeSp){
+  font-size: ($fontSizeSp / $spStandardWidth) * 100vw;
+}
+@mixin fontSizePc($fontSizePc){
+  font-size: ($fontSizePc / $pcStandardWidth) * 100vw;
+  @include media-breakpoint-up(xl) {
+    font-size: $fontSizePc * 1px;
+  }
+}
+
+@mixin lineHeightSp($lineHeightSp){
+  line-height: ($lineHeightSp / $spStandardWidth) * 100vw;
+}
+@mixin lineHeightPc($lineHeightPc){
+  line-height: ($lineHeightPc / $pcStandardWidth) * 100vw;
+  @include media-breakpoint-up(xl) {
+    line-height: $lineHeightPc * 1px;
+  }
+}
+
+@mixin marginBottomSp($marginBottomSp){
+  margin-bottom: ($marginBottomSp / $spStandardWidth) * 100vw;
+}
+@mixin marginBottomPc($marginBottomPc){
+  margin-bottom: ($marginBottomPc / $pcStandardWidth) * 100vw;
+  @include media-breakpoint-up(xl) {
+    margin-bottom: $marginBottomPc * 1px;
+  }
+}
+
+@mixin marginTopSp($marginTopSp){
+  margin-top: ($marginTopSp / $spStandardWidth) * 100vw;
+}
+@mixin marginTopPc($marginTopPc){
+  margin-top: ($marginTopPc / $pcStandardWidth) * 100vw;
+  @include media-breakpoint-up(xl) {
+    margin-top: $marginTopPc * 1px;
+  }
+}
+
+// ClearFix
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+/* ---------------------
+
+for this site
+
+--------------------- */
+
+@mixin fontBold(){
+  font-family: 'Muli', sans-serif;
+  font-weight:800;
+}
+
+@mixin fontSemiBold(){
+  font-family: 'Muli', sans-serif;
+  font-weight:600;
+}
+
+@mixin fontHandWrighting(){
+  font-family: 'Satisfy', cursive;
+}
+
+@mixin contentText($top:auto,$right:0px,$bottom:-8vw,$left:auto,$width:187,$height:116,$pc:true){
+    content: '';
+    position: absolute;
+    transform: rotate(-20deg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: top left;
+    top:$top;
+    right: $right;
+    bottom:$bottom;
+    left:$left;
+    @include widthSp($width / 2);
+    @include heightSp($height / 2);
+    @if $pc == true{
+      @include media-breakpoint-up(md) { 
+        @include widthPc($width);
+        @include heightPc($height);
+      }
+    }
+}
