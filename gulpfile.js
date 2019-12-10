@@ -37,6 +37,7 @@ const webpackConfig = {
     entry:['@babel/polyfill','./_assets/js/project.js'],
     // 出力ファイル
     output: {
+        path: __dirname + '/dist/js',
         filename: "[name].min.js"
     },
     module: {

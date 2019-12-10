@@ -1,10 +1,12 @@
 "use strict"
 
+console.log('テスト');
+
 // jQueryはwebpack側で読み込んでいる
 
 // sub.jsファイルを読み込むには???
-// import sub from "./_sub";
-// sub;
+import sub from "./_sub";
+sub;
 
 // anime.jsを読み込む
 import anime from 'animejs/lib/anime.es.js';
